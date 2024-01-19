@@ -19,8 +19,7 @@ function App(props) {
         <Route path='/profile'
           element={<Content
             postsData={props.state.postsData}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText}
+            dispatch={props.dispatch}
           />
         }
         />

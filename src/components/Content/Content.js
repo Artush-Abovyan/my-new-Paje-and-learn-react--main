@@ -20,8 +20,7 @@ const Content = (props) => {
         <MyPosts 
             postsData={props.postsData.posts} 
             newPostText ={props.postsData.newPostText}
-            updateNewPostText={props.updateNewPostText}
-            addPost={props.addPost}
+            dispatch={props.dispatch}
         />
         
     </div>

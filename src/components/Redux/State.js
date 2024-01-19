@@ -21,30 +21,31 @@ let store = {
             { id: 3, message: "you" },
         ]
     },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
     getState(){
         return this._state
     },
     _callSubscriber(){
         console.log("STATE CHENGER");
     },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.postsData.newPostText,
-            like: 0
-        };
-        this._state.postsData.posts.push(newPost);
-        this._state.postsData.newPostText = ""
-        this._callSubscriber(this._state)
-        
-    },
-    updateNewPostText(newText) {
-        this._state.postsData.newPostText = newText;
-        this._callSubscriber(this._state)
-    },
-    subscribe(observer) {
-        this._callSubscriber = observer;
+    dispatch(action){
+        if (action.type === "ADD-POST") {
+            let newPost = {
+                id: 5,
+                message: this._state.postsData.newPostText,
+                like: 0
+            };
+            this._state.postsData.posts.push(newPost);
+            this._state.postsData.newPostText = "";
+            this._callSubscriber(this._state);
+        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._state.postsData.newPostText = action.newText;
+            this._callSubscriber(this._state)
+        }
     }
+    
 }
 export default store;
 
