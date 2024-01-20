@@ -12,7 +12,6 @@ const MyPosts = (props) => {
 
     const addPost = () => {
         props.dispatch(addPostActionCreator());
-        
     }
 
     const onPostChange = () => {

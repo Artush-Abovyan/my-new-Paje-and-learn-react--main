@@ -14,10 +14,9 @@ function App(props) {
       <Header />
       <Saitbar />
       <Routes>
-        <Route path='/dialogs/' element={<Dialogs dialogsData={props.state.dialogsData} messagesData={props.state.messagesData} />} />
-        <Route path='/dialogs/:dialogId' element={<SingleDialog dialogsData={props.state.dialogsData} messagesData={props.state.messagesData} />} />
-        <Route path='/profile'
-          element={<Content
+        <Route path='/dialogs/' element={<Dialogs store={props.store} />} />
+        <Route path='/dialogs/:dialogId' element={<SingleDialog dialogsData={props.state.dialogsPage.dialogsData} messagesData={props.state.dialogsPage.messagesData} />} />
+        <Route path='/profile' element={<Content
             postsData={props.state.postsData}
             dispatch={props.dispatch}
           />
