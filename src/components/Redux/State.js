@@ -1,5 +1,4 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
@@ -27,7 +26,8 @@ let store = {
                 { id: 3, message: "you" },
             ],
             newMessgeBody: ""
-        }
+        },
+        sidebar: {}
 
     },
     subscribe(observer) {
