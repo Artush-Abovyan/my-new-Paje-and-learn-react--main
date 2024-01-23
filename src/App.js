@@ -3,9 +3,9 @@ import './App.css';
 import Header from './components/Header/Header';
 import Saitbar from './components/SaitBar/Saitbar';
 import Content from './components/Content/Content';
-import Dialogs from './components/Dialogs/Dialogs';
 import { Route, Routes } from 'react-router-dom';
 import SingleDialog from './components/SingleDIalog/SingleDialog';
+import DialogsConteiner from './components/Dialogs/DialogsConteiner';
 
 
 function App(props) {
@@ -14,13 +14,10 @@ function App(props) {
       <Header />
       <Saitbar />
       <Routes>
-        <Route path='/dialogs/' element={<Dialogs store={props.store} />} />
+        <Route path='/dialogs/' element={<DialogsConteiner store={props.store} />} />
         <Route path='/dialogs/:dialogId' element={<SingleDialog dialogsData={props.state.dialogsPage.dialogsData} messagesData={props.state.dialogsPage.messagesData} />} />
         <Route path='/profile' element={<Content
-            postsData={props.state.postsData}
-            dispatch={props.dispatch}
-          />
-        }
+            store={props.store}/>}
         />
       </Routes>
     </div>

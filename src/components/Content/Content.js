@@ -1,9 +1,9 @@
 import React from 'react'
 import Styles from './Content.module.css'
-import MyPosts from './MyPosts/MyPosts'
+import MyPostsConteiner from './MyPosts/MyPostsConteiner'
 
 const Content = (props) => {
-    
+
 
     return <div className={Styles.content}>
         <div>
@@ -17,12 +17,11 @@ const Content = (props) => {
                 <h3>Artush A.</h3>
             </div>
         </div>
-        <MyPosts 
-            postsData={props.postsData.posts} 
-            newPostText ={props.postsData.newPostText}
-            dispatch={props.dispatch}
+        <MyPostsConteiner
+            store={props.store}
+            
         />
-        
+
     </div>
 }
 
