@@ -2,9 +2,7 @@ import React from 'react'
 import Styles from './Content.module.css'
 import MyPostsConteiner from './MyPosts/MyPostsConteiner'
 
-const Content = (props) => {
-
-
+const Content = () => {
     return <div className={Styles.content}>
         <div>
             <img className={Styles.img} src='imeg1.png' /></div>
@@ -17,11 +15,7 @@ const Content = (props) => {
                 <h3>Artush A.</h3>
             </div>
         </div>
-        <MyPostsConteiner
-            store={props.store}
-            
-        />
-
+        <MyPostsConteiner />
     </div>
 }
 
