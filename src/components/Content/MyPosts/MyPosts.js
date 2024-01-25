@@ -1,6 +1,7 @@
 import React from 'react';
 import Styles from './MyPosts.module.css';
 import Post from './Post/Post';
+import ContentLoader from 'react-content-loader';
 
 
 const MyPosts = (props) => {
@@ -18,6 +19,16 @@ const MyPosts = (props) => {
     }
 
     return <div className={Styles.content}>
+        <ContentLoader
+            speed={3}
+            width={250}
+            height={40}
+            viewBox="0 0 300 40"
+            backgroundColor="red"
+            foregroundColor="yellow"
+        >
+            <rect x='20' y='15' rx='4' ry='14' width='150' height='16.4' />
+        </ContentLoader>
         <h2>My posts</h2>
         <div>
             <div>

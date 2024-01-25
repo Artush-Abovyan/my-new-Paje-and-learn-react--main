@@ -8,11 +8,12 @@ import toast from 'react-hot-toast';
 
 const MyPostsConteiner = () => {
     return (
-        <StoreContext.Consumer> 
-            { store => {
-                const addposttoast = ()=>{
+        <StoreContext.Consumer>
+            {store => {
+                const addposttoast = () => {
                     toast.success("YOUR POST ADDED")
                 }
+                
 
                 const state = store.getState();
                 const addPost = () => {
@@ -30,7 +31,7 @@ const MyPostsConteiner = () => {
                     posts={state.postsData.posts}
                     newPostText={state.postsData.newPostText} />
             }
-        }
+            }
         </StoreContext.Consumer>
     )
 }
