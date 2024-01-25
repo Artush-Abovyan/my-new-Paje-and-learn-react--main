@@ -6,11 +6,13 @@ import Content from './components/Content/Content';
 import { Route, Routes } from 'react-router-dom';
 import SingleDialog from './components/SingleDIalog/SingleDialog';
 import DialogsConteiner from './components/Dialogs/DialogsConteiner';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
   return (
     <div className='app-wrapper'>
+      <Toaster />
       <Header />
       <Saitbar />
       <Routes>

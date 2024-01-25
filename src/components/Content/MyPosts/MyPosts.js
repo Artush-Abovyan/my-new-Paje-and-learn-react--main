@@ -8,6 +8,7 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     const onAddPost = () => {
+        props.addposttoast()
         props.addPost();
     }
 

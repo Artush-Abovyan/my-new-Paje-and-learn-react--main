@@ -11,6 +11,7 @@ const Dialogs = (props) => {
   let newMessgeBody = state.newMessgeBody;
 
   let onSendMessageClick = () => {
+    props.addposttoast()
     props.sendMessage();
   }
 
