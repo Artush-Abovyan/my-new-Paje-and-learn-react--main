@@ -1,35 +1,31 @@
 import React from 'react';
 import { sendMessageCreator, updateNewMessageBodyCreater } from '../Redux/dialogs-reducer';
 import Dialogs from './Dialogs';
-import StoreContext from '../../StoreContext';
 import toast from 'react-hot-toast';
+import { connect } from 'react-redux';
 
-const DialogsConteiner = () => {
 
 
-  return <StoreContext.Consumer> 
-    { store => {
-      let state = store.getState().dialogsPage;
-      const addposttoast = ()=>{
-        toast.success("YOUR SMS HAS BEEN SENT")
-    }
+let mapStateToProps = (state) => {
+  return {
+    dialogsData: state.dialogsPage
+  }
+}
 
-      let onSendMessageClick = () => {
-        store.dispatch(sendMessageCreator());
-      }
-
-      let onNewMessageChange = (body) => {
-        store.dispatch(updateNewMessageBodyCreater(body));
-      }
-      return <Dialogs
-        addposttoast={addposttoast}
-        updateNewMessageBody={onNewMessageChange}
-        sendMessage={onSendMessageClick}
-        dialogsData={state} />
+let maqDispatchToProps = (dispatch) => {
+  return {
+    addposttoast: () => {
+      toast.success("YOUR SMS HAS BEEN SENT")
+    },
+    updateNewMessageBody: (body) => {
+      dispatch(updateNewMessageBodyCreater(body));
+    },
+    sendMessage: () => {
+      dispatch(sendMessageCreator());
     }
   }
-  </StoreContext.Consumer>
-
 }
+
+const DialogsConteiner = connect(mapStateToProps, maqDispatchToProps)(Dialogs);
 
 export default DialogsConteiner
